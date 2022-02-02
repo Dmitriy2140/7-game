@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Пишем игру "Виселица"</title>
+</head>
+<body>
+	<script>
+		var words = ["программа", "макака", "прекрасный", "оладушек"];
+		var word = words[Math.floor(Math.random() * words.length)];
+		var answerArray = [];
+		for (var i = 0; i < word.length; i++) {
+			answerArray[i] = "_";
+		}
+
+		var remainingLetters = word.length;
+
+		// Игровой цикл
+
+		var guess = prompt("Угадайте букву или нажмите Отмена для выхода из игры.");
+		if (guess === null) {
+			break;
+		} else if (guess.length !==1) {
+			alert("Пожалуйста, введите только одну букву.");
+		} else {
+			for (var j = 0; j < word.length; j++) {
+				if (words[j] === guess) {
+					answerArray[j] = guess;
+					remainingLetters--;
+				}
+			}
+		}
+		alert(answerArray.join(" "));
+		alert("Отлично! Было загаданно слово " + word);
+
+	</script>
+
+</body>
+</html>
